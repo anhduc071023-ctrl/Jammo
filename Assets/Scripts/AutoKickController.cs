@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class AutoKickController : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class AutoKickController : MonoBehaviour
     [SerializeField] private Button autoKickButton;
     [SerializeField] private GoalDetector[] goals;
 
+    [Header("Cooldown")]
+    [SerializeField] private float cooldownTime = 1f;
+
+    private bool isOnCooldown = false;
+    private Coroutine cooldownCoroutine;
+
     private void Start()
     {
         if (autoKickButton == null)
@@ -16,18 +23,13 @@ public class AutoKickController : MonoBehaviour
 
         if (autoKickButton != null)
             autoKickButton.onClick.AddListener(AutoKick);
-        else
-            Debug.LogError("AutoKickController: Chua gan Auto Kick Button!");
-
-        if (player == null)
-            Debug.LogError("AutoKickController: Chua gan Player!");
-
-        if (goals == null || goals.Length == 0)
-            Debug.LogError("AutoKickController: Chua gan cac GoalDetector!");
     }
 
     public void AutoKick()
     {
+        if (isOnCooldown)
+            return;
+
         if (player == null || goals == null || goals.Length == 0)
             return;
 
@@ -62,7 +64,7 @@ public class AutoKickController : MonoBehaviour
 
         if (farthestBall == null)
         {
-            Debug.Log("Auto Kick: Khong con bong nao de sut!");
+
             return;
         }
 
@@ -87,20 +89,42 @@ public class AutoKickController : MonoBehaviour
         }
 
         if (nearestGoal == null)
-        {
             return;
-        }
 
         farthestBall.AutoKickToTarget(
-     nearestGoal.GetTargetPosition()
+            nearestGoal.GetTargetPosition()
         );
-      
 
+        StartCooldown();
+    }
+
+    private void StartCooldown()
+    {
+        isOnCooldown = true;
+
+        if (autoKickButton != null)
+            autoKickButton.interactable = false;
+
+        cooldownCoroutine = StartCoroutine(CooldownRoutine());
+    }
+
+    private IEnumerator CooldownRoutine()
+    {
+        yield return new WaitForSeconds(cooldownTime);
+
+        isOnCooldown = false;
+        cooldownCoroutine = null;
+
+        if (autoKickButton != null)
+            autoKickButton.interactable = true;
     }
 
     private void OnDestroy()
     {
         if (autoKickButton != null)
             autoKickButton.onClick.RemoveListener(AutoKick);
+
+        if (cooldownCoroutine != null)
+            StopCoroutine(cooldownCoroutine);
     }
 }

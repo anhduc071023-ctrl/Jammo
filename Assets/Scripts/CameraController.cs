@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour
     [Header("Target")]
     [SerializeField] private Transform player;
 
+    [Header("Player Movement")]
+    [SerializeField] private MonoBehaviour playerController;
+
     [Header("Top-Down Camera")]
     [SerializeField] private float height = 15f;
     [SerializeField] private Vector3 offset = Vector3.zero;
@@ -20,6 +23,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector3 ballOffset = Vector3.zero;
     [SerializeField] private float returnDelay = 2f;
 
+
     private Transform target;
     private BallController currentBall;
     private Coroutine returnCoroutine;
@@ -30,7 +34,6 @@ public class CameraController : MonoBehaviour
     {
         target = player;
 
-        // Tranh camera di chuyen dot ngot luc bat dau.
         if (target != null)
             SnapToTarget();
     }
@@ -73,7 +76,6 @@ public class CameraController : MonoBehaviour
             ? ballSmoothTime
             : playerSmoothTime;
 
-        // SmoothDamp giup camera bam theo muot hon khi bong chay nhanh.
         transform.position = Vector3.SmoothDamp(
             transform.position,
             desiredPosition,
@@ -81,7 +83,7 @@ public class CameraController : MonoBehaviour
             smoothTime
         );
 
-        // Giu goc nhin top-down.
+ 
         transform.rotation = Quaternion.Euler(90f, 0f, 0f);
     }
 
@@ -95,6 +97,9 @@ public class CameraController : MonoBehaviour
             StopCoroutine(returnCoroutine);
             returnCoroutine = null;
         }
+
+        if (playerController != null)
+            playerController.enabled = false;
 
         currentBall = ball;
         target = ball.transform;
@@ -121,6 +126,9 @@ public class CameraController : MonoBehaviour
         currentBall = null;
         smoothVelocity = Vector3.zero;
         returnCoroutine = null;
+
+        if (playerController != null)
+            playerController.enabled = true;
     }
 
     private void SnapToTarget()

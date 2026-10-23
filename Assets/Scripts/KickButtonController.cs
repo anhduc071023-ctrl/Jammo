@@ -85,7 +85,6 @@ public class KickButtonController : MonoBehaviour
         if (Time.time < nextKickTime)
             return;
 
-        // Refresh selection before kicking.
         FindNearestBall();
 
         if (nearestBall == null)

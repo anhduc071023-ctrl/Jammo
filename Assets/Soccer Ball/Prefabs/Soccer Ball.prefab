@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -497.77, y: -307.769, z: -1.24}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2.8, y: 2.8, z: 2.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -148,11 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebc525e6286399419f940d5d5ccdae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalKickForce: 12
+  normalKickForce: 15
   normalLiftForce: 4
-  autoKickForce: 9
+  autoKickForce: 15
   autoLiftForce: 2
-  maxSpeed: 15
+  maxSpeed: 18
 --- !u!96 &274649774963471479
 TrailRenderer:
   serializedVersion: 3

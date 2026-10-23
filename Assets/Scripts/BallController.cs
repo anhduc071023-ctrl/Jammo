@@ -52,11 +52,11 @@ public class BallController : MonoBehaviour
 
         rb.AddForce(force, ForceMode.Impulse);
 
-        // Bao cho CameraController biet bong vua duoc sut.
+     
         OnBallKicked?.Invoke(this);
     }
 
-    // Kick thuong: giu luc sut manh.
+
     public void KickToTarget(Vector3 targetPosition)
     {
         KickToPosition(
@@ -66,7 +66,7 @@ public class BallController : MonoBehaviour
         );
     }
 
-    // Auto Kick: luc sut nhe hon, it bong.
+
     public void AutoKickToTarget(Vector3 targetPosition)
     {
         KickToPosition(
@@ -107,7 +107,7 @@ public class BallController : MonoBehaviour
 
         HasScored = true;
 
-        // Bao cho camera biet bong da vao khung thanh.
+       
         OnBallScored?.Invoke(this);
 
         rb.velocity = Vector3.zero;

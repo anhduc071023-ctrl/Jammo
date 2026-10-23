@@ -51,13 +51,6 @@ public class GoalDetector : MonoBehaviour
        
             Destroy(effect, 5f);
         }
-        else
-        {
-            Debug.LogWarning(
-                "Chua gan Confetti Prefab trong GoalDetector!"
-            );
-        }
-
-        Debug.Log("Goal! Confetti Explosion - Stars");
+     
     }
 }
