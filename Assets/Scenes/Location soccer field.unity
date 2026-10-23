@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 128598429}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.862, z: -0.46}
+  m_LocalPosition: {x: 0, y: 0.862, z: -0.569}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -248,8 +248,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.4889932, y: 1.8555927, z: 0.48664457}
-  m_Center: {x: 0.00000035762787, y: 0.08555937, z: 0.06222394}
+  m_Size: {x: 3.4889932, y: 2.000554, z: 0.7185819}
+  m_Center: {x: 0.00000035762787, y: 0.15804005, z: 0.1781927}
 --- !u!1 &205687224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1190,7 @@ Transform:
   m_GameObject: {fileID: 889088063}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.856, z: -0.524}
+  m_LocalPosition: {x: -0, y: 0.856, z: -0.449}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1230,8 +1230,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.417392, y: 1.782104, z: 0.46633893}
-  m_Center: {x: -0.011469126, y: 0.18080878, z: 0.0779672}
+  m_Size: {x: 3.417392, y: 1.9611406, z: 0.55114543}
+  m_Center: {x: -0.011469126, y: 0.2043662, z: 0.12037049}
 --- !u!1 &1000037331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,15 +2594,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817674853816217528, guid: f3059fe87515fa740afe2ac7e9819671, type: 3}
       propertyPath: m_Size.z
-      value: 0.617836
+      value: 0.51867294
       objectReference: {fileID: 0}
     - target: {fileID: 7817674853816217528, guid: f3059fe87515fa740afe2ac7e9819671, type: 3}
       propertyPath: m_Center.x
-      value: 4.403809e-17
+      value: -6.605578e-16
       objectReference: {fileID: 0}
     - target: {fileID: 7817674853816217528, guid: f3059fe87515fa740afe2ac7e9819671, type: 3}
       propertyPath: m_Center.z
-      value: -0.49690098
+      value: -0.5464825
       objectReference: {fileID: 0}
     - target: {fileID: 7817674854150330680, guid: f3059fe87515fa740afe2ac7e9819671, type: 3}
       propertyPath: m_Size.y
